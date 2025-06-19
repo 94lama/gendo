@@ -1,7 +1,6 @@
 import os, re
 
 readme = f"{os.path.curdir}/README.md"
-
 patterns = ['components']
 
 with open(readme) as file:
