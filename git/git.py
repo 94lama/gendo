@@ -17,9 +17,9 @@ def run_git_command(command, repo_path='.'):
         return None
 
 def get_unstaged_diff_subprocess(repo_path='.'):
-    print(f"Unstaged changes (via subprocess) in {repo_path}:\n")
-    diff_output = run_git_command("git diff", repo_path)
-    print(diff_output if diff_output else "There are no changes on diff")
+    #print(f"Unstaged changes (via subprocess) in {repo_path}:\n")
+    return run_git_command("git diff", repo_path)
+    #print(diff_output if diff_output else "There are no changes on diff")
 
 def get_commit_diff_subprocess(commit_hash_1, commit_hash_2, repo_path='.'):
     print(f"\nChanges between {commit_hash_1[:7]} and {commit_hash_2[:7]} (via subprocess) in {repo_path}:\n")
