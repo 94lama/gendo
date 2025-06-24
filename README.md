@@ -1,5 +1,8 @@
 # components
 |- componente1
-|- compoennte2
+|- componente2
+
+# requirements
+- openai==1.90
 
 # License
