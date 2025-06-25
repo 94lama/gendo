@@ -1,5 +1,5 @@
 import sys, re
-from .git import *
+from .diff import *
 
 
 """ if __name__ == "__main__":

@@ -2,3 +2,8 @@
 function sum(a ,b){
     return a+b
 }
+
+// Subtraction function
+function sub(a,b){
+    return a-b
+}

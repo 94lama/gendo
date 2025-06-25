@@ -1,1 +1,2 @@
-print("hello")
+import os
+print(f"hello {os.getenv('PWD')}")

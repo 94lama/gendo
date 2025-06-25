@@ -7,28 +7,29 @@ input_example = "--- a/requirements.txt\
 +openai==1.90.0\
 \ No newline at end of file"
 
-documentation_example = "# requirements\
-- openai==1.90\
-"
+documentation_example = {
+    "data": "# requirements\n- openai==1.90"}
 
-def message(role, data):
+def message(data, role="user"):
     return {
-        "role": "user",
-        "content": data
+        "role": role,
+        "content": "".join(data)
     }
 
 def ask(client, documentation=documentation_example, input=input_example):
+    print(f"Sending the request to OpenAI")
     try:
         response = client.responses.create(
             model=os.getenv("MODEL") if os.getenv("MODEL") else "o4-mini",
             input=[
-                message("developer", "Considering the following input:"),
-                message("user", input),
-                message("developer", "Update the following section of the documentation for developers (in Markdown):"),
-                message("user", documentation),
+                message("Considering the following input:", "developer"),
+                message(input),
+                message("Update the following section of the documentation for developers (in Markdown):", "developer"),
+                message(documentation),
             ]
         )
-        print(response.output_text)
+        print("Response received")
+        return response.output_text
     except openai.AuthenticationError as e:
         print("❌ Auth Error:", e)
     except Exception as e:

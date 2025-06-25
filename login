@@ -1,10 +1,7 @@
 #!/bin/bash
 # To install effectively the variables, run:  
-# ```source ./install```
+# ```source ./login```
 # from this directory.
-
-echo "Installing all dependencies..."
-pip install -r requirements.txt
 
 echo "Adding the directory to PATH"
 export PATH=$PATH:$PWD
