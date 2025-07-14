@@ -1,4 +1,5 @@
-import os, openai
+import openai
+from config import config
 
 input_example = "--- a/requirements.txt\
 +++ b/requirements.txt\
@@ -20,7 +21,7 @@ def ask(client, documentation=documentation_example, input=input_example):
     print(f"Sending the request to OpenAI")
     try:
         response = client.responses.create(
-            model=os.getenv("MODEL") if os.getenv("MODEL") else "o4-mini",
+            model=config.MODEL,
             input=[
                 message("Considering the following input:", "developer"),
                 message(input),

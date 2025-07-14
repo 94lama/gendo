@@ -1,0 +1,13 @@
+# Copy this to .env and fill in your values
+
+# OpenAI Configuration
+OPENAI_API_KEY=your_openai_api_key_here
+OPENAI_PROJECT=your_openai_project_id_here
+MODEL=o4-mini
+
+# File Paths
+README_PATH=/README.md
+
+# Application Settings
+DEBUG=False
+LOG_LEVEL=INFO 
