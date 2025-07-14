@@ -1,6 +1,5 @@
 import sys, openai, os
 from .agent import *
-from .project import *
 
 client = openai.OpenAI()
 client.project=os.getenv("OPENAI_PROJECT")

@@ -1,5 +1,6 @@
 import sys
 import ai, git, reader
+import doc
 
 arguments=sys.argv
 
@@ -16,22 +17,13 @@ elif arguments[1] == "reader":
 
 elif arguments[1] == "commit":
     import os
+    patterns = ["reader", "git", "ai"]
 
-    patterns = ["reader"]
-    path = f"{os.path.curdir}/README.md"
-    git_diff = git.get_unstaged_diff_subprocess()
-    git_diff = reader.find_match_on_list(git_diff.split("\n"), patterns[0])
-    
-    response = "No match found."
-    readme = reader.read.find_multiple_matches(path, patterns)
-
-    print(readme)
-    if(len(git_diff) > 0):
-        import os
-
-        client = ai.client
-        response = ai.agent.ask(client, map(lambda x: x["data"], readme), git_diff[0]["data"])
-        reader.write.replace_text(path, readme[0]["data"], response)
-        #reader.write.replace_multiple_texts(path, readme, response)
-
-    print("Process ended.")
+    if len(arguments) == 2:
+        doc.diff_doc(patterns)
+    elif arguments[2] == "help":
+        print("Usage: commit <pattern> <message>")
+        print("Pattern: ai, reader, git")
+        print("Message: The message to commit")
+    elif arguments[2] in patterns:
+        doc.diff_doc([argument[2]])
