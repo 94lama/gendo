@@ -1,3 +1,8 @@
 #!/bin/bash
 
-python3 ~/gendo/main.py $@
+if [ -d ".git" ]; then
+    python3 ~/gendo/main.py $@
+else
+    echo "Error: This is not a git repository"
+    exit 1
+fi

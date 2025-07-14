@@ -1,3 +1,10 @@
+# gendo
+
+Gendo is a tool to analyze code changes inside a repository (via git diffing), add them in a query to an AI agent, and updates automatically the documentation files of the selected repository.
+
+This Open Source project is ongoing and always opened for any help is offered.
+
+
 # Install
 
 ## First use

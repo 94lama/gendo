@@ -13,13 +13,23 @@ patterns = get_principal_subdirectories(os.path.curdir)
 
 
 if len(arguments) == 1:
-    print("Usage: commit <pattern> <message>")
-    print("Message: The message to commit")
+    print("Welcome to Gendo!")
+    print("This tool is meant to help you generate documentation for your project.")
+    print("It is a work in progress and will be updated soon.")
+    print("For now, you can use it to generate documentation for your project.")
+    print("To see the patterns, use the command 'patterns'.")
+    print("To see the help, use the command 'help'.")
+    print("To see the git diff, use the command 'git'.")
+    print("To see the ai response, use the command 'ai'.")
     exit(0)
 
 elif arguments[1] == "help":
     print("Usage: commit <pattern> <message>")
-    print("Message: The message to commit")
+    print("patterns: list of patterns")
+    print("commit: verifies the diff and generates the documentation")
+    print("git: shows the git diff")
+    print("ai: shows the ai response")
+    print("reader: shows the reader response")
     exit(0)
 
 elif arguments[1] == "patterns":
@@ -38,9 +48,6 @@ elif arguments[1] == "reader":
     reader.read()
 
 elif arguments[1] == "commit":
-    import os
-    patterns = ["reader", "git", "ai"]
-
     if len(arguments) == 2:
         document_generator.diff_doc(patterns)
     elif arguments[2] == "help":
